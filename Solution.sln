@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempMonitoring", "TempMonitoring\TempMonitoring.csproj", "{12AB4158-F53B-438D-A74F-215B7106E585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "port", "port\port.csproj", "{D2A19A77-4196-4AFB-B133-065857DEC0CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12AB4158-F53B-438D-A74F-215B7106E585}.Debug|x86.ActiveCfg = Debug|x86
+		{12AB4158-F53B-438D-A74F-215B7106E585}.Debug|x86.Build.0 = Debug|x86
+		{12AB4158-F53B-438D-A74F-215B7106E585}.Release|x86.ActiveCfg = Release|x86
+		{12AB4158-F53B-438D-A74F-215B7106E585}.Release|x86.Build.0 = Release|x86
+		{D2A19A77-4196-4AFB-B133-065857DEC0CB}.Debug|x86.ActiveCfg = Debug|x86
+		{D2A19A77-4196-4AFB-B133-065857DEC0CB}.Debug|x86.Build.0 = Debug|x86
+		{D2A19A77-4196-4AFB-B133-065857DEC0CB}.Release|x86.ActiveCfg = Release|x86
+		{D2A19A77-4196-4AFB-B133-065857DEC0CB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

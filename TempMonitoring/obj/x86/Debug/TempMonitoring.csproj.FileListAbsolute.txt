@@ -1,0 +1,20 @@
+F:\Prof. Lin\Solution\TempMonitoring\bin\Debug\TempMonitoring.exe
+F:\Prof. Lin\Solution\TempMonitoring\bin\Debug\TempMonitoring.pdb
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.Form1.resources
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.Properties.Resources.resources
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.csproj.GenerateResource.Cache
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.exe
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.pdb
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.csprojResolveAssemblyReference.cache
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.comParas.resources
+F:\Prof. Lin\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.CurveParas.resources
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.exe
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.pdb
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\bin\Debug\TempMonitoring.exe
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\bin\Debug\TempMonitoring.pdb
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.csprojResolveAssemblyReference.cache
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.comParas.resources
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.CurveParas.resources
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.Form1.resources
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.Properties.Resources.resources
+C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.csproj.GenerateResource.Cache

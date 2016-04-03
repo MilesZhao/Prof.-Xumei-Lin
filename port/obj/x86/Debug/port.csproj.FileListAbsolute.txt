@@ -1,0 +1,16 @@
+F:\Prof. Lin\Solution\port\bin\Debug\port.exe
+F:\Prof. Lin\Solution\port\bin\Debug\port.pdb
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.Form1.resources
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.Properties.Resources.resources
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.csproj.GenerateResource.Cache
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.exe
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.pdb
+F:\Prof. Lin\Solution\port\obj\x86\Debug\port.csprojResolveAssemblyReference.cache
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.exe
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.pdb
+C:\Users\MilesZhao\Desktop\Solution\port\bin\Debug\port.exe
+C:\Users\MilesZhao\Desktop\Solution\port\bin\Debug\port.pdb
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.csprojResolveAssemblyReference.cache
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.Form1.resources
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.Properties.Resources.resources
+C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.csproj.GenerateResource.Cache
