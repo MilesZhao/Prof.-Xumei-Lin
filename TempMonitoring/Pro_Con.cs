@@ -341,8 +341,8 @@ namespace TempMonitoring
         public static int LastNodeNum=0;
         public static bool LastStatus = false;
         private void Curve(NodeData dat)
-        {      
-                      
+        {
+
             if (curve.isHistory == false)//real time data curve
             {
                 if (index <= chart.ChartAreas[0].AxisX.ScaleView.Size + 1)
@@ -527,11 +527,11 @@ namespace TempMonitoring
                 }
                 LastNodeNum = curve.NodeNum;// record last node No.
             }//real time data curve
-            else //if(curve.isHistory==true  &&
-                  //  isFisrtPresent==true)//past data curve
-            {
+            //else //if(curve.isHistory==true  &&
+            //      //  isFisrtPresent==true)//past data curve
+            //{
                                 
-            }//past data curve
+            //}//past data curve
         }
         /// <summary>
         /// set the created legend right now

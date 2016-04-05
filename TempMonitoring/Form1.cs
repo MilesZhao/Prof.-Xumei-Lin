@@ -169,7 +169,7 @@ namespace TempMonitoring
         /// </summary>
         private void FigureOut(DataTable dt)
         {
-            if(Consumer.curve.isHistory)
+            if (Consumer.curve.isHistory)
             {
                 chart1.Series.Clear();
                 chart1.Legends.Clear();

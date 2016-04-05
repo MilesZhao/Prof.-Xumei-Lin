@@ -12,6 +12,7 @@ namespace TempMonitoring
     public partial class CurveParas : Form
     {
         private DataProcess dp = new DataProcess();
+        private bool TabStatus = false;
         public CurveParas()
         {
             InitializeComponent();
@@ -280,7 +281,7 @@ namespace TempMonitoring
                 }
                 Consumer.PastDT = dp.SelectData(dtHSTime.Value, dtHETime.Value, Int32.Parse(cmbHNodeNumber.Text));
             }// tab 1
-            
+            Consumer.curve.isHistory = TabStatus;
             this.Close();
             Form1.isOkbtn = true;
         }
@@ -290,7 +291,7 @@ namespace TempMonitoring
 
             if (tabControl1.SelectedIndex == 0)
             {
-                Consumer.curve.isHistory = false;
+                TabStatus = false;
             }
             else if (tabControl1.SelectedIndex == 1)
             {
@@ -315,7 +316,7 @@ namespace TempMonitoring
                 {
                     this.listBox2.Items.Add("湿度");
                 }
-                Consumer.curve.isHistory = true;
+                TabStatus = true;
             }
         }
 
@@ -329,29 +330,3 @@ namespace TempMonitoring
         }
     }
 }
-/*
- Form2中先定义一个delegate
-public delegate void returnvalue( int i );
-public returnvalue ReturnValue;
-form2 中的button按钮代码如下：
-private void button1_Click(object sender, System.EventArgs e)
-{
-    if ( ReturnValue != null )
-        ReturnValue( 8 );
-}
- 
-Form1中的button按键如下：
-private void button1_Click(object sender, System.EventArgs e)
-{
-    Form2 temp = new Form2( );
-    temp.ReturnValue = new temp.Form2.returnvalue( showvalue );
-    temp.Show();
-}
- 
-private void showvalue( int i )
-{
-    textBox1.Text = i.ToString();
-}
- 
-点击form2的button，form1中的textbox中的值就会相应变化。
- */
