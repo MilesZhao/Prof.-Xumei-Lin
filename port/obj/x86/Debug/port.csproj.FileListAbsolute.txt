@@ -14,3 +14,11 @@ C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.csprojResolveAssembl
 C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.Form1.resources
 C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.Properties.Resources.resources
 C:\Users\MilesZhao\Desktop\Solution\port\obj\x86\Debug\port.csproj.GenerateResource.Cache
+Y:\GitHub\Prof.-Xumei-Lin\port\bin\Debug\port.exe
+Y:\GitHub\Prof.-Xumei-Lin\port\bin\Debug\port.pdb
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.csprojResolveAssemblyReference.cache
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.Form1.resources
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.Properties.Resources.resources
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.csproj.GenerateResource.Cache
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.exe
+Y:\GitHub\Prof.-Xumei-Lin\port\obj\x86\Debug\port.pdb

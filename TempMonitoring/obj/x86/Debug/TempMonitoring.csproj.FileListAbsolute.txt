@@ -20,3 +20,11 @@ C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.
 C:\Users\MilesZhao\Desktop\Solution\TempMonitoring\obj\x86\Debug\TempMonitoring.csproj.GenerateResource.Cache
 Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.exe
 Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.pdb
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\bin\Debug\TempMonitoring.exe
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\bin\Debug\TempMonitoring.pdb
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.csprojResolveAssemblyReference.cache
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.comParas.resources
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.CurveParas.resources
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.Form1.resources
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.Properties.Resources.resources
+Y:\GitHub\Prof.-Xumei-Lin\TempMonitoring\obj\x86\Debug\TempMonitoring.csproj.GenerateResource.Cache
