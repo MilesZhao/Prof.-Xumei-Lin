@@ -24,6 +24,7 @@ namespace TempMonitoring
             cbBPortName.Text = Producer.port.portName;
             cbBBaudRate.Text = Producer.port.baudRate.ToString();
             cbBDataBit.Text = Producer.port.dataBits.ToString();
+            tbInternal.Text = port.Internal.ToString();
             StopBits sb = Producer.port.stopBits;
             if (sb == StopBits.One)
             {
@@ -134,6 +135,11 @@ namespace TempMonitoring
         {
             dp.UpdateComParas(Producer.port);
             this.Close();
+        }
+
+        private void tbInternal_TextChanged(object sender, EventArgs e)
+        {
+            Producer.port.Internal = int.Parse(tbInternal.Text);
         }
     }
 }

@@ -40,12 +40,14 @@
             this.cbBStopBit = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbInternal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 35);
+            this.label1.Location = new System.Drawing.Point(50, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -54,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 74);
+            this.label2.Location = new System.Drawing.Point(50, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 1;
@@ -63,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 113);
+            this.label3.Location = new System.Drawing.Point(50, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 2;
@@ -72,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 152);
+            this.label4.Location = new System.Drawing.Point(50, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 3;
@@ -81,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 191);
+            this.label5.Location = new System.Drawing.Point(50, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 4;
@@ -109,7 +111,7 @@
             "COM16",
             "COM17",
             "COM18"});
-            this.cbBPortName.Location = new System.Drawing.Point(122, 32);
+            this.cbBPortName.Location = new System.Drawing.Point(110, 14);
             this.cbBPortName.Name = "cbBPortName";
             this.cbBPortName.Size = new System.Drawing.Size(96, 20);
             this.cbBPortName.TabIndex = 5;
@@ -132,7 +134,7 @@
             "2400",
             "1200",
             "600"});
-            this.cbBBaudRate.Location = new System.Drawing.Point(122, 71);
+            this.cbBBaudRate.Location = new System.Drawing.Point(110, 53);
             this.cbBBaudRate.Name = "cbBBaudRate";
             this.cbBBaudRate.Size = new System.Drawing.Size(96, 20);
             this.cbBBaudRate.TabIndex = 5;
@@ -146,7 +148,7 @@
             "6",
             "7",
             "8"});
-            this.cbBDataBit.Location = new System.Drawing.Point(122, 110);
+            this.cbBDataBit.Location = new System.Drawing.Point(110, 92);
             this.cbBDataBit.Name = "cbBDataBit";
             this.cbBDataBit.Size = new System.Drawing.Size(96, 20);
             this.cbBDataBit.TabIndex = 5;
@@ -161,7 +163,7 @@
             "Odd",
             "Mark",
             "Space"});
-            this.cbBCheckBit.Location = new System.Drawing.Point(122, 149);
+            this.cbBCheckBit.Location = new System.Drawing.Point(110, 131);
             this.cbBCheckBit.Name = "cbBCheckBit";
             this.cbBCheckBit.Size = new System.Drawing.Size(96, 20);
             this.cbBCheckBit.TabIndex = 5;
@@ -174,7 +176,7 @@
             "1",
             "1.5",
             "2"});
-            this.cbBStopBit.Location = new System.Drawing.Point(122, 188);
+            this.cbBStopBit.Location = new System.Drawing.Point(110, 170);
             this.cbBStopBit.Name = "cbBStopBit";
             this.cbBStopBit.Size = new System.Drawing.Size(96, 20);
             this.cbBStopBit.TabIndex = 5;
@@ -182,7 +184,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(37, 238);
+            this.btnCancel.Location = new System.Drawing.Point(16, 241);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -192,7 +194,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(187, 238);
+            this.btnOK.Location = new System.Drawing.Point(166, 241);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 7;
@@ -200,11 +202,30 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(38, 207);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "时间间隔";
+            // 
+            // tbInternal
+            // 
+            this.tbInternal.Location = new System.Drawing.Point(110, 204);
+            this.tbInternal.Name = "tbInternal";
+            this.tbInternal.Size = new System.Drawing.Size(96, 21);
+            this.tbInternal.TabIndex = 9;
+            this.tbInternal.TextChanged += new System.EventHandler(this.tbInternal_TextChanged);
+            // 
             // comParas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 273);
+            this.ClientSize = new System.Drawing.Size(260, 276);
+            this.Controls.Add(this.tbInternal);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbBStopBit);
@@ -241,5 +262,7 @@
         private System.Windows.Forms.ComboBox cbBStopBit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbInternal;
     }
 }

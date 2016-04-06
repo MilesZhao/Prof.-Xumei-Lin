@@ -7,6 +7,8 @@ using System.Data;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.IO.Ports;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace TempMonitoring
 {
@@ -30,7 +32,7 @@ namespace TempMonitoring
              
             myconn.Open();
 
-            string strSQL = "insert into EValues ([NodeNumber],[Voltage0],[Voltage1],[Voltage2],[Voltage3],[Voltage4],";
+            string strSQL = "insert into alldata ([NodeNumber],[Voltage0],[Voltage1],[Voltage2],[Voltage3],[Voltage4],";
             strSQL += "[Voltage5],[Voltage6],[Currency0],[Currency1],[Currency2],[Currency3],";
             strSQL += "[Currency4],[Currency5],[Currency6],[Resistor0],[Resistor1],[Resistor2],";
             strSQL += "[Resistor3],[Resistor4],[Resistor5],[Temperature],[Humidity],";
@@ -70,11 +72,15 @@ namespace TempMonitoring
             {
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
             }
 
-            myconn.Close();
+            finally
+            {
+                myconn.Close();
+            }
 
         }
         /// <summary>
@@ -90,15 +96,28 @@ namespace TempMonitoring
             {
                 myconn.Close();
             }
+            myconn.Open();
             string s=start.ToString("yy/MM/dd");
             string e=end.ToString("yy/MM/dd");
-
-            string strSQL = "select * from EValues where [DateTime]>='"+s+"' and [DateTime]<='"+e+"'";
-            strSQL += "and [NodeNumber]=" + (int)nodeNum + " order by [DateTime] asc";// if the field is not string, there is no need to use '', like above
-            OleDbDataAdapter DA = new OleDbDataAdapter(strSQL, myconn);
             DataTable dt = new DataTable();
-            DA.Fill(dt);
+            try
+            {
 
+
+                string strSQL = "select * from alldata where [DateTime] >= '" + s + "' and [DateTime] <= '" + e + "'";
+                strSQL += "and [NodeNumber]=" + (int)nodeNum + " order by [ID] asc";// if the field is not string, there is no need to use '', like above
+                OleDbDataAdapter DA = new OleDbDataAdapter(strSQL, myconn);
+                
+                DA.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                myconn.Close();
+            }
             return dt;
         }
 
@@ -120,11 +139,12 @@ namespace TempMonitoring
             myconn.Open();
 
             string strSQL = "update PortInfo set [Name]=@Name,[BaudRate]=@baudRate, [dataBits]=@dataBits,";
-            strSQL += "[stopBits]=@stopBits,[parity]=@parity where [ID]=1";
+            strSQL += "[stopBits]=@stopBits,[parity]=@parity,[Time]=@Time where [ID]=1";
             OleDbCommand cmd = new OleDbCommand(strSQL, myconn);
             cmd.Parameters.Add("@name", OleDbType.VarChar).Value = com.portName;
             cmd.Parameters.Add("@baudRate", OleDbType.VarChar).Value=com.baudRate.ToString();
             cmd.Parameters.Add("@dataBits", OleDbType.VarChar).Value = com.dataBits.ToString();
+            
             if (com.stopBits == StopBits.One)
             {
                 cmd.Parameters.Add("@stopBits", OleDbType.VarChar).Value = "1";
@@ -158,11 +178,16 @@ namespace TempMonitoring
             {
                 cmd.Parameters.Add("@parity", OleDbType.VarChar).Value = "Space";
             }
+            cmd.Parameters.Add("@Time", OleDbType.Integer).Value = com.Internal;// cmd parameters needs to write according to the order in the database
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
             {
                 myconn.Close();
             }
@@ -176,7 +201,8 @@ namespace TempMonitoring
                 portName = "COM1",
                 dataBits = 8,
                 stopBits = StopBits.One,
-                parity = Parity.None
+                parity = Parity.None,
+                Internal=1000
             };
             if (myconn.State == ConnectionState.Open)
             {
@@ -192,6 +218,7 @@ namespace TempMonitoring
             port.portName = dt.Rows[0][1].ToString();
             port.baudRate = Int32.Parse(dt.Rows[0][2].ToString());
             port.dataBits = Int32.Parse(dt.Rows[0][3].ToString());
+            
             string str1 = dt.Rows[0][4].ToString();//stopbits
             if (str1 == "1")
             {
@@ -226,6 +253,8 @@ namespace TempMonitoring
             {
                 port.parity = Parity.Space;
             }
+            string str3 = dt.Rows[0][6].ToString();
+            port.Internal = int.Parse(str3);
 
             return port;
         }

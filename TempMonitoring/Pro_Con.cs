@@ -113,7 +113,8 @@ namespace TempMonitoring
                 portName = "COM1",
                 dataBits = 8,
                 stopBits = StopBits.One,
-                parity = Parity.None
+                parity = Parity.None,
+                Internal=1000
             };
 
         }
@@ -130,11 +131,11 @@ namespace TempMonitoring
 
         public bool OpenCom()
         {
-            com.PortName = Producer.port.portName;
-            com.BaudRate = Producer.port.baudRate;
-            com.DataBits = Producer.port.dataBits;
-            com.StopBits = Producer.port.stopBits;
-            com.Parity = Producer.port.parity;
+            com.PortName = port.portName;
+            com.BaudRate = port.baudRate;
+            com.DataBits = port.dataBits;
+            com.StopBits = port.stopBits;
+            com.Parity = port.parity;
 
             try
             {
@@ -190,7 +191,7 @@ namespace TempMonitoring
                 {
                    
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(port.Internal);
             }
         }
         
@@ -304,7 +305,7 @@ namespace TempMonitoring
                     }
                 }
                                
-                Thread.Sleep(100);
+                Thread.Sleep(Producer.port.Internal);
             }
         }
         /// <summary>
@@ -597,6 +598,7 @@ namespace TempMonitoring
         public int dataBits;
         public StopBits stopBits;
         public Parity parity;
+        public int Internal;
     }
 
     /// <summary>
