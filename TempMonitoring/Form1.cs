@@ -265,7 +265,10 @@ namespace TempMonitoring
         private void SetSeries(Series ss)
         {
             ss.XValueType = ChartValueType.Date;
-            ss.ChartType = SeriesChartType.Spline;
+            ss.ChartType = SeriesChartType.Line;
+            ss.MarkerStyle = MarkerStyle.Diamond;
+            ss.MarkerSize = 10;
+            ss.IsValueShownAsLabel = true;
         }
 
         private void 修改串口参数ToolStripMenuItem_Click(object sender, EventArgs e)

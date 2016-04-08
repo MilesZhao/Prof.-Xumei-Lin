@@ -165,7 +165,11 @@ namespace TempMonitoring
                     //if (PortClosing) return;//if port is closing, stop receiveing data
                     try
                     {
-                        com.Read(byt, 0, bytelen);
+                        if(com.BytesToRead>=102)
+                        {
+                            com.Read(byt, 0, bytelen);
+                        }
+                        
 
 
                         int start = BitConverter.ToInt32(byt, 0);
@@ -186,6 +190,10 @@ namespace TempMonitoring
                     }
                     catch
                     { }
+                    finally
+                    {
+                        byt = new byte[bytelen];
+                    }
                 }                                                                               
                 else
                 {
@@ -567,7 +575,7 @@ namespace TempMonitoring
 
             //ss.MarkerStyle = MarkerStyle.Diamond;
             //ss.MarkerSize = 10;
-            //ss.IsValueShownAsLabel = true;  
+            //ss.IsValueShownAsLabel = true;
         }
 
         private void InitAll()
