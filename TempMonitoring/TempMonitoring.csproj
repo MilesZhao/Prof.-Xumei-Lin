@@ -53,6 +53,7 @@
     <Compile Include="comParas.Designer.cs">
       <DependentUpon>comParas.cs</DependentUpon>
     </Compile>
+    <Compile Include="cPort.cs" />
     <Compile Include="CRCCheck.cs" />
     <Compile Include="CurveParas.cs">
       <SubType>Form</SubType>

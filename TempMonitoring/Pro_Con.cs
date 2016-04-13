@@ -11,6 +11,7 @@ using System.Drawing;
 
 namespace TempMonitoring
 {
+
     public class HoldIntegerSynchronized
     {
         private NodeData[] buffer;// buffer zone of node data
@@ -165,7 +166,7 @@ namespace TempMonitoring
                     //if (PortClosing) return;//if port is closing, stop receiveing data
                     try
                     {
-                        if(com.BytesToRead>=102)
+                        if(com.BytesToRead>= bytelen)
                         {
                             com.Read(byt, 0, bytelen);
                         }
@@ -303,7 +304,7 @@ namespace TempMonitoring
                         //PortListening = true;//start invoke application
                         nd=(NodeData)sharedLocation.Buffer;
                         curve.dtPresent = DateTime.Now;
-                        mydeledate my = Curve;
+                        mydeledate my = RealtimeFigureOut;
                         chart.Invoke(my, new object[] {  nd });
                         dp.AddData(nd, curve.dtPresent);
                     }
@@ -321,7 +322,7 @@ namespace TempMonitoring
         /// false add V series to chart
         /// true add data to V series
         /// </summary>
-        public static bool[] isCreateV = new bool[7] { false, false, false, false, false, false, false };
+        private bool[] isCreateV = new bool[7] { false, false, false, false, false, false, false };
         /// <summary>
         /// default is false 
         /// false add C series to chart
@@ -349,7 +350,7 @@ namespace TempMonitoring
 
         public static int LastNodeNum=0;
         public static bool LastStatus = false;
-        private void Curve(NodeData dat)
+        private void RealtimeFigureOut(NodeData dat)
         {
 
             if (curve.isHistory == false)//real time data curve
@@ -569,10 +570,8 @@ namespace TempMonitoring
         }
         private void SetSeries(Series ss)
         {
-            ss.ChartType = SeriesChartType.Spline;
+            ss.ChartType = SeriesChartType.Line;
             ss.BorderWidth = 1;
-            //ss.ShadowOffset = 2;
-
             //ss.MarkerStyle = MarkerStyle.Diamond;
             //ss.MarkerSize = 10;
             //ss.IsValueShownAsLabel = true;

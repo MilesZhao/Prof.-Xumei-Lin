@@ -132,7 +132,7 @@ namespace TempMonitoring
             frm.ShowDialog();
             if(isOkbtn)
             {
-                FigureOut(Consumer.PastDT);
+                HistroyFigureOut(Consumer.PastDT);
             }
             
         }
@@ -167,8 +167,13 @@ namespace TempMonitoring
         /// <summary>
         /// history data figure
         /// </summary>
-        private void FigureOut(DataTable dt)
+        private void HistroyFigureOut(DataTable dt)
         {
+            if(dt.Rows.Count<1)
+            {
+                chart1.Titles["tNodeName"].Text = "未发现任何数据！";
+                return;
+            }
             if (Consumer.curve.isHistory)
             {
                 chart1.Series.Clear();
