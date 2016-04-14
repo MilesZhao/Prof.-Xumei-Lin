@@ -169,13 +169,14 @@ namespace TempMonitoring
         /// </summary>
         private void HistroyFigureOut(DataTable dt)
         {
-            if(dt.Rows.Count<1)
-            {
-                chart1.Titles["tNodeName"].Text = "未发现任何数据！";
-                return;
-            }
+            
             if (Consumer.curve.isHistory)
             {
+                if (dt.Rows.Count < 1)
+                {
+                    chart1.Titles["tNodeName"].Text = "未发现任何数据！";
+                    return;
+                }
                 chart1.Series.Clear();
                 chart1.Legends.Clear();
                 chart1.Titles["tNodeName"].Text = "测量节点 " + Consumer.curve.NodeNum.ToString() + " 参数";
