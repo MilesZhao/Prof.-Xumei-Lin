@@ -83,17 +83,14 @@ namespace TempMonitoring
     class Producer
     {
         private HoldIntegerSynchronized sharedLocation;
-        private SerialPort com;
         private byte[] byt;      
         private NodeData nd;
         private const int bytelen = 102;
 
-        public static ComConfig port;
         //public static bool PortClosing = false;
         public Producer(HoldIntegerSynchronized shared)
         {
             sharedLocation = shared;
-            com = new SerialPort();
 
             byt = new byte[bytelen];
             nd = new NodeData()// initiate struct NodeData
@@ -108,70 +105,23 @@ namespace TempMonitoring
                 End = 0x0D,
                 CRCValue=0x00
             };
-            port = new ComConfig()
-            {
-                baudRate = 9600,
-                portName = "COM1",
-                dataBits = 8,
-                stopBits = StopBits.One,
-                parity = Parity.None,
-                Internal=1000
-            };
-
-        }
-
-        public bool IsComOpen
-        {
-            get { return com.IsOpen; }
-        }
-
-        public string ComName
-        {
-            get { return com.PortName; }
-        }
-
-        public bool OpenCom()
-        {
-            com.PortName = port.portName;
-            com.BaudRate = port.baudRate;
-            com.DataBits = port.dataBits;
-            com.StopBits = port.stopBits;
-            com.Parity = port.parity;
-
-            try
-            {
-                com.Open();
-                return true;
-            }
-            catch
-            {
-                MessageBox.Show("串口不存在或被占用！");
-                return false;
-            }
             
+
         }
 
-        public void CloseCom()
-        {
-            com.Close();
-        }
-
-        
         public void Produce()
         {
             while (true)
             {
-                if (com.IsOpen)
+                if (RS232.IsComOpen)
                 {
                     //if (PortClosing) return;//if port is closing, stop receiveing data
                     try
                     {
-                        if(com.BytesToRead>= bytelen)
+                        if (RS232.bytesToread >= bytelen)
                         {
-                            com.Read(byt, 0, bytelen);
+                            RS232.read(byt, 0, bytelen);
                         }
-                        
-
 
                         int start = BitConverter.ToInt32(byt, 0);
                         int end = BitConverter.ToInt32(byt, bytelen - 6);
@@ -184,9 +134,8 @@ namespace TempMonitoring
                         }
                         else//if data is not correct this time, read all data in the buffer zone of com 
                         {   //and wait next 
-                             
-                            com.ReadExisting();
-                            
+
+                            RS232.readall();
                         }
                     }
                     catch
@@ -195,15 +144,15 @@ namespace TempMonitoring
                     {
                         byt = new byte[bytelen];
                     }
-                }                                                                               
+                }
                 else
                 {
-                   
+
                 }
-                Thread.Sleep(port.Internal);
+                Thread.Sleep(RS232.port.Internal);
             }
         }
-        
+
     }
 
     class Consumer
@@ -314,7 +263,7 @@ namespace TempMonitoring
                     }
                 }
                                
-                Thread.Sleep(Producer.port.Internal);
+                Thread.Sleep(RS232.port.Internal);
             }
         }
         /// <summary>
@@ -594,18 +543,6 @@ namespace TempMonitoring
             //curve.T = false;
             //curve.H = false;
         }
-    }
-    /// <summary>
-    /// configurations of com
-    /// </summary>
-    public struct ComConfig
-    {
-        public int baudRate;
-        public string portName;
-        public int dataBits;
-        public StopBits stopBits;
-        public Parity parity;
-        public int Internal;
     }
 
     /// <summary>

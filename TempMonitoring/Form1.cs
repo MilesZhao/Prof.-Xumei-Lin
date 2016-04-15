@@ -24,6 +24,7 @@ namespace TempMonitoring
         HoldIntegerSynchronized holdInteger;
         Producer pro;
         Consumer con;
+        RS232 port = new RS232();
 
         public Form1()
         {
@@ -50,7 +51,7 @@ namespace TempMonitoring
 
             };
 
-            holdInteger = new HoldIntegerSynchronized(5);//
+            holdInteger = new HoldIntegerSynchronized(15);//
 
             pro = new Producer(holdInteger);
             tPro = new Thread(new ThreadStart(pro.Produce));
@@ -61,7 +62,7 @@ namespace TempMonitoring
             tPro.Start();
             tCon.Start();
 
-            Producer.port = dp.SelectComParas();
+            RS232.port = dp.SelectComParas();
             
 
         }
@@ -84,22 +85,12 @@ namespace TempMonitoring
         }
 
         
-        //private bool bFirst = true;
         private void 打开串口ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //isFirstForm = true;
-            if (!pro.IsComOpen)//open com
+            if (!RS232.IsComOpen)//open com
             {
-                if (pro.OpenCom())
+                if (RS232.OpenCom())
                 {
-                    //if (!bFirst)
-                    //{
-                    //    if (tPro.ThreadState == ThreadState.Suspended)
-                    //        tPro.Resume();
-                    //    if (tCon.ThreadState == ThreadState.Suspended)
-                    //        tCon.Resume();
-                    //}
-                    //bFirst = false;
                     打开串口ToolStripMenuItem.Text = "关闭串口";
                 }
                 else
@@ -109,19 +100,7 @@ namespace TempMonitoring
             }
             else//close com
             {
-                //Producer.PortClosing = true;
-                //while (Consumer.PortListening) Application.DoEvents();// port is listening, 
-                //if (tPro.ThreadState == ThreadState.Running)
-                //{
-                //    tPro.Suspend();
-                //}
-                //if (tCon.ThreadState == ThreadState.Running)
-                //{
-                //    tCon.Suspend();
-                //}
-                pro.CloseCom();
-                //Producer.PortClosing = false;
-                //Consumer.PortListening = false;
+                RS232.CloseCom();
                 打开串口ToolStripMenuItem.Text = "打开串口";
             }
         }
@@ -279,22 +258,15 @@ namespace TempMonitoring
 
         private void 修改串口参数ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (pro.IsComOpen)
+            if (RS232.IsComOpen)
             {
                 MessageBox.Show("关闭串口后配置串口参数！");
             }
             else
             {
-                //if (Application.OpenForms["comParas"] == null)
-                {
-                    comParas frm = new comParas();
-                    //frm.MdiParent = this;
-                    frm.ShowDialog();                   
-                }
-                //else
-                //{
-                //    Application.OpenForms["comParas"].Show();
-                //}
+                comParas frm = new comParas();
+                //frm.MdiParent = this;
+                frm.ShowDialog();
             }
         }
 

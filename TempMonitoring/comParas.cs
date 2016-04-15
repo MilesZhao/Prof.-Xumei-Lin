@@ -13,19 +13,18 @@ namespace TempMonitoring
 {
     public partial class comParas : Form
     {
-        private ComConfig port;
         private DataProcess dp;
+        private int save;
         public comParas()
         {
             InitializeComponent();
             dp = new DataProcess();
-            
-            port = dp.SelectComParas();
-            cbBPortName.Text = Producer.port.portName;
-            cbBBaudRate.Text = Producer.port.baudRate.ToString();
-            cbBDataBit.Text = Producer.port.dataBits.ToString();
-            tbInternal.Text = port.Internal.ToString();
-            StopBits sb = Producer.port.stopBits;
+
+            cbBPortName.Text = RS232.port.portName;
+            cbBBaudRate.Text = RS232.port.baudRate.ToString();
+            cbBDataBit.Text = RS232.port.dataBits.ToString();
+            tbInternal.Text = RS232.port.Internal.ToString();
+            StopBits sb = RS232.port.stopBits;
             if (sb == StopBits.One)
             {
                 cbBStopBit.Text = "1";
@@ -39,7 +38,7 @@ namespace TempMonitoring
                 cbBStopBit.Text = "2";
             }
 
-            Parity p = Producer.port.parity;
+            Parity p = RS232.port.parity;
             if (p == Parity.None)
             {
                 cbBCheckBit.Text = "None";
@@ -76,7 +75,7 @@ namespace TempMonitoring
                     return Parity.Mark;
                 case "Space":
                     return Parity.Space;
-                default: 
+                default:
                     return Parity.None;
 
             }
@@ -88,7 +87,7 @@ namespace TempMonitoring
             switch (str)
             {
                 case "1":
-                    sb= StopBits.One;
+                    sb = StopBits.One;
                     break;
                 case "1.5":
                     sb = StopBits.OnePointFive;
@@ -102,27 +101,27 @@ namespace TempMonitoring
 
         private void cbBPortName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producer.port.portName = cbBPortName.Text;
+            RS232.port.portName = cbBPortName.Text;
         }
 
         private void cbBBaudRate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producer.port.baudRate = Int32.Parse(cbBBaudRate.Text);
+            RS232.port.baudRate = Int32.Parse(cbBBaudRate.Text);
         }
 
         private void cbBDataBit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producer.port.dataBits = Int32.Parse(cbBDataBit.Text);
+            RS232.port.dataBits = Int32.Parse(cbBDataBit.Text);
         }
 
         private void cbBCheckBit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producer.port.parity = parity_String2Enum(cbBCheckBit.Text);
+            RS232.port.parity = parity_String2Enum(cbBCheckBit.Text);
         }
 
         private void cbBStopBit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producer.port.stopBits = stopBits_String2Enum(cbBStopBit.Text);
+            RS232.port.stopBits = stopBits_String2Enum(cbBStopBit.Text);
             //MessageBox.Show(cbBStopBit.Text);
         }
 
@@ -133,13 +132,21 @@ namespace TempMonitoring
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            dp.UpdateComParas(Producer.port);
+            RS232.port.Internal = save;
+            dp.UpdateComParas(RS232.port);
             this.Close();
         }
 
         private void tbInternal_TextChanged(object sender, EventArgs e)
         {
-            Producer.port.Internal = int.Parse(tbInternal.Text);
+            try
+            {
+                save = int.Parse(tbInternal.Text);
+            }
+            catch//(Exception ex)
+            {
+                //MessageBox.Show("please input number!");
+            }
         }
     }
 }
