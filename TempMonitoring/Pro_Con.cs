@@ -121,21 +121,22 @@ namespace TempMonitoring
                         if (RS232.bytesToread >= bytelen)
                         {
                             RS232.read(byt, 0, bytelen);
-                        }
 
-                        int start = BitConverter.ToInt32(byt, 0);
-                        int end = BitConverter.ToInt32(byt, bytelen - 6);
-                        int crcValue = CRCCheck.CRC_XModem(byt, bytelen - 2);
 
-                        if (start == 0x2F && end == 0x0D && (crcValue == BitConverter.ToUInt16(byt, bytelen - 2)))
-                        {
-                            nd = (NodeData)NodeData.BytesToStuct(byt, nd.GetType());
-                            sharedLocation.Buffer = nd;
-                        }
-                        else//if data is not correct this time, read all data in the buffer zone of com 
-                        {   //and wait next 
+                            int start = BitConverter.ToInt32(byt, 0);
+                            int end = BitConverter.ToInt32(byt, bytelen - 6);
+                            int crcValue = CRCCheck.CRC_XModem(byt, bytelen - 2);
 
-                            RS232.readall();
+                            if (start == 0x2F && end == 0x0D && (crcValue == BitConverter.ToUInt16(byt, bytelen - 2)))
+                            {
+                                nd = (NodeData)NodeData.BytesToStuct(byt, nd.GetType());
+                                sharedLocation.Buffer = nd;
+                            }
+                            else//if data is not correct this time, read all data in the buffer zone of com 
+                            {   //and wait next 
+
+                                RS232.readall();
+                            }
                         }
                     }
                     catch
