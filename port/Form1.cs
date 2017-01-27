@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
 
 namespace port
 {
